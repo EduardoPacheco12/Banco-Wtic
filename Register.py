@@ -3,7 +3,7 @@
 
 def registro_pessoal():
 
-    
+    print("-------REGISTRO DO BANCO WTIC-------")
 
     nome_register = input("Digite o seu nome completo:\n")
 

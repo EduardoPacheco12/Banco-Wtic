@@ -13,8 +13,9 @@ def tela_entrada():
 
     if opcao.lower() == "sair": #DIGITANDO ESSA OPÇÃO ELE SAI DO PROGRAMA
         print("Até logo")
+        exit(0)
     elif opcao == "1": #DIGITANDO ESSA OPÇÃO VOCÊ É LEVADO PARA A TELA DE LOGIN
-        Login
+        Login.entrar_programa()
     elif opcao == "2": #DIGITANDO ESSA OPÇÃO VOCÊ É LEVADO PRA TELA DE CADASTRO
         Register.registro_pessoal()
     else: #SE NENHUMA DAS OPÇÕES ACIMA FOR SELECIONADA ELE RETORNA PEDINDO UMA INFORMAÇÃO VÁLIDA
