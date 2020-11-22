@@ -1,23 +1,44 @@
 import UserScreen
+import Register
+import MainScreen
 
 #TELA DE LOGIN
 
-arquivo='clientes.txt'
-
 def entrar_programa():
+    while(True):
+    
+        print("-------LOGIN NO BANCO WTIC-------\n")
 
-    print("-------LOGIN NO BANCO WTIC-------\n")
+        nome_cliente = input("Digite seu nome de usuário:\n")
 
-    cpf_verificaçao = input("Digite o seu CPF:\n")
+        try:
+            nick = open(f'{nome_cliente}/nome.txt',"r")
+            ver_nick = nick.read()
+            nick.close()
 
-    nome_cliente = input("Digite seu nome de usuário:\n")
+        except:
+            cadastrar = input("Nome informado não possui cadastro, deseja cadastrar?\n")
 
-    senha_verificaçao = input("Digite sua senha: ")
+            if cadastrar.lower() == 'sim':
+                Register.registro_pessoal()
+            elif cadastrar.lower() == 'não':
+                MainScreen.tela_entrada()
+            else:
+                print("Digite uma opção válida")
 
-    conteudo_arquivo=open(arquivo,'r')
+        senha_verificaçao = input("Digite sua senha:\n")
 
-    for ver in conteudo_arquivo:
-        nome = ver.split('-')
-        if nome[0] == nome_cliente:
-            print('apagar')
-            #PARA DE MEXER NO LOGIN SE VC AINDA N FEZ O REGISTER
+        senha= open(f'{nome_cliente}/senha.txt',"r")
+        ver_senha = senha.read()
+        senha.close()
+
+        if senha_verificaçao != senha:
+            print("Senha incorreta, tente novamente.\n")
+            continue
+        else:
+            print("Logado com sucesso!")
+            UserScreen.tela_usuario()
+
+
+
+    #conteudo_arquivo=open(arquivo,'r')

@@ -14,7 +14,6 @@ def tela_usuario():
         print("Até logo")
     elif opcao == "1":
         print('opçao 1')
-
     elif opcao == "2":
         print('opção 2')
     else:
