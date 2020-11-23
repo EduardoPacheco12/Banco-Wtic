@@ -7,7 +7,6 @@ def validando_nome(nome):
         while nome.isnumeric() == True:
             nome = input('Nome inválido, digite novamente\n')
 
-
         try:
             open(f'{nome}/nome.txt')
             nome = input('Nome já existente, digite novamente\n')
@@ -22,13 +21,13 @@ def validando_cpf(cpf):
     return cpf
 
 def validando_idade(idade):
-    while idade.isnumeric() == False:
+    while (idade.isnumeric() == False) or (int(idade) < 18):
             idade = input('Idade inválida, digite novamente.\n')
 
     return idade
 
 def validando_saldo(saldo):
-    while (saldo.isnumeric()==False) or (int(saldo)<0):
+    while (saldo.isnumeric()==False) or (int(saldo) < 0):
         saldo=input('Quantia inválida, digite novamente\n')
 
     return saldo

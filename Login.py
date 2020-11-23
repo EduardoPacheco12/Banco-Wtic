@@ -23,7 +23,7 @@ def entrar_programa():
         elif cadastrar.lower() == 'não':
             MainScreen.tela_entrada()
         else:
-            print("Digite uma opção válida")
+            print("Opção inválida, tente novamente")
 
     senha_verificaçao = input("Digite sua senha:\n")
 
