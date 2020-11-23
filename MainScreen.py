@@ -20,3 +20,4 @@ def tela_entrada():
         Register.registro_pessoal()
     else: #SE NENHUMA DAS OPÇÕES ACIMA FOR SELECIONADA ELE RETORNA PEDINDO UMA INFORMAÇÃO VÁLIDA
         print("DIGITE UMA OPÇÃO VÁLIDA")
+        
