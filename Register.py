@@ -18,9 +18,6 @@ def registro_pessoal():
 
     saldo_register = input("Digite a quantidade a ser depositada:\n")
 
-    #valido=validar_nome(nome_register)
-
-    #if valido == 1:
     pasta_cliente = f'{nome_register}'#cria a pasta
     os.mkdir(pasta_cliente)
 
@@ -48,6 +45,10 @@ def registro_pessoal():
     arquivo_saldo= open(f'{pasta_cliente}/saldo.txt',"w")
     arquivo_saldo.write(saldo_register)
     arquivo_saldo.close()
+
+    #Salva o extrato dentro de um arquivo na pasta
+    arquivo_extrato= open(f'{pasta_cliente}/extrato.txt',"w")
+    arquivo_extrato.close()
 
     entrar=input('cadastro efetuado com sucesso, deseja fazer login?\n')
 
