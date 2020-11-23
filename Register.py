@@ -1,24 +1,32 @@
-
-import validar_nome
 import os
 import Login
+import RegisterTratamentos
 #TELA DE CADASTRO
 
 def registro_pessoal():
 
     print("-------REGISTRO DO BANCO WTIC-------")
 
+    #recebendo e validando nome
     nome_register = input("Digite o seu nome de usuário (este nome vai representar você em todas as ocasiões):\n")
-
+    nome_register = RegisterTratamentos.validando_nome(nome_register)
+    
+    #recebendo e validando idade
     idade_register = input("Digite a sua idade:\n")
+    idade_register = RegisterTratamentos.validando_idade(idade_register)
 
+    #recebendo e validando cpf
     cpf_register = input("Digite seu cpf:\n")
+    cpf_register = RegisterTratamentos.validando_cpf(cpf_register)
 
     senha_register = input("Digite sua senha:\n")
 
+    #recebendo e validando saldo
     saldo_register = input("Digite a quantidade a ser depositada:\n")
+    saldo_register = RegisterTratamentos.validando_saldo(saldo_register)
 
-    pasta_cliente = f'{nome_register}'#cria a pasta
+    #cria a pasta
+    pasta_cliente = f'{nome_register}'
     os.mkdir(pasta_cliente)
 
     #Coloca a idade dentro de um arquivo na pasta
@@ -50,7 +58,7 @@ def registro_pessoal():
     arquivo_extrato= open(f'{pasta_cliente}/extrato.txt',"w")
     arquivo_extrato.close()
 
-    entrar=input('cadastro efetuado com sucesso, deseja fazer login?\n')
+    entrar=input('Cadastro efetuado com sucesso, deseja fazer login?\n')
 
     if entrar == 'sim':
         Login.entrar_programa()

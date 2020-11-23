@@ -16,6 +16,7 @@ def tela_usuario(nome_cliente):
 
         if opcao.lower() == "sair":
             print("Até logo")
+            roda=False
         elif opcao == "1":
             operacao=input('[1] Para sacar\n[2] Para depositar\n[3] Para fazer transferencia\n[4] Para ver seu saldo\n[5] Para finalizar o programa.\n')
 
