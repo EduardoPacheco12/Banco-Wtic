@@ -1,5 +1,6 @@
 import UserScreen
 import Saque
+import Deposito
 
 #OPERAÇÕES BANCÁRIAS
 
@@ -9,25 +10,12 @@ def transações_bancárias(nome_cliente):
 
         print('---OPERAÇÕES BANCÁRIAS---\n')
 
-        operacao=input('[1] Para sacar\n[2] Para depositar\n[3] Para fazer transferencia\n[4] Para ver seu saldo\nDigite "voltar" para voltar pra tela de usuário\n')
+        operacao = input('[1] Para sacar\n[2] Para depositar\n[3] Para fazer transferencia\n[4] Para ver seu saldo\nDigite "voltar" para voltar pra tela de usuário\n')
 
         if operacao == '1': #DIGITANDO ESSA OPÇÃO SERÁ REALIZADO O SAQUE
             Saque.realizando_saque(nome_cliente)
         elif operacao == '2': #DIGITANDO ESSA OPÇÃO SERÁ REALIZADO O DEPÓSITO
-            saldo = open(f'{nome_cliente}/saldo.txt',"r")
-            alterar_saldo=saldo.read()
-            saldo.close()
-            saldo2 = open(f'{nome_cliente}/saldo.txt',"w")
-
-            depositar_dinheiro = (input('Quanto você deseja depositar?\n'))
-
-            #transformo em string para salvar no arquivo
-            alteracao=int(alterar_saldo) + int(depositar_dinheiro)
-            alteracao=str(alteracao)
-
-            saldo2.write(alteracao)
-            saldo2.close()
-
+            Deposito.realizando_deposito(nome_cliente)
         elif operacao == '3':
             quantia = int(input('Quanto você deseja transferir?\n'))
             favorecido = input('Qual o nome de usuário do favorecido?\n')
