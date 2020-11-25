@@ -1,4 +1,3 @@
-import UserScreen
 import OperaçoesBancarias
 
 #SAQUE
