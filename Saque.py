@@ -19,14 +19,17 @@ def realizando_saque(nome_cliente):
         print('Digite uma quantia numérica\n')
         OperaçoesBancarias.transações_bancárias(nome_cliente)
     else: #OPERAÇÃO EM SI SENDO EFETUADA
-        alteracao = int(alterar_saldo) - int(sacar_dinheiro)
+        sacar_dinheiro = int(sacar_dinheiro)
+        alterar_saldo = int(alterar_saldo)
         if sacar_dinheiro > alterar_saldo: #SE A PEDIDA DO SAQUE FOR MAIOR DO Q O VALOR ATUAL NA CONTA O SAQUE NÃO SERÁ REALIZADO
+            print('Dinheiro insuficiente pra realizar a transação!\n')
+            alterar_saldo = str(alterar_saldo)
             saldo2.write(alterar_saldo)
             saldo2.close()
-            print('Dinheiro insuficiente pra realizar a transação!\n')
             OperaçoesBancarias.transações_bancárias(nome_cliente)
         else: #SAQUE SENDO REALIZADO
             print('Saque realizado com sucesso!')
+            alteracao = int(alterar_saldo) - int(sacar_dinheiro)
             alteracao = str(alteracao)
             saldo2.write(alteracao)
             saldo2.close()
