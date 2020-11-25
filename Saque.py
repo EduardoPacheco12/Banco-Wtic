@@ -15,18 +15,36 @@ def realizando_saque(nome_cliente):
     
     if sacar_dinheiro.lower() == 'voltar': #SE DIGITAR PRA VOLTAR ELE RETORNARÁ PRAS OPERAÇÕES BANCÁRIAS
         OperaçoesBancarias.transações_bancárias(nome_cliente)
+        return
+
     elif sacar_dinheiro.isnumeric() == False: #VALIDAÇÃO PRA QUE NÃO POSSA SER DIGITADO ALGO FORA DE NÚMEROS
         print('Digite uma quantia numérica\n')
         OperaçoesBancarias.transações_bancárias(nome_cliente)
+
     else: #OPERAÇÃO EM SI SENDO EFETUADA
+
+        abrir_senha=open(f'{nome_cliente}/senha.txt',"r")
+        ver_senha=abrir_senha.read()
+        abrir_senha.close()
+
         sacar_dinheiro = int(sacar_dinheiro)
         alterar_saldo = int(alterar_saldo)
+
         if sacar_dinheiro > alterar_saldo: #SE A PEDIDA DO SAQUE FOR MAIOR DO Q O VALOR ATUAL NA CONTA O SAQUE NÃO SERÁ REALIZADO
             print('Dinheiro insuficiente pra realizar a transação!\n')
             alterar_saldo = str(alterar_saldo)
             saldo2.write(alterar_saldo)
             saldo2.close()
             OperaçoesBancarias.transações_bancárias(nome_cliente)
+
+        verificar_senha = input('Digite sua senha para a confirmação.\n')
+        while ver_senha!=verificar_senha:
+            verificar_senha = input('Senha incorreta, digite novamente.\n')
+            volta=input('Digite "voltar" para voltar às operações bancárias.\n')
+            if volta.lower()=='voltar':
+                OperaçoesBancarias.transações_bancárias(nome_cliente)
+                return
+
         else: #SAQUE SENDO REALIZADO
             print('Saque realizado com sucesso!')
             alteracao = int(alterar_saldo) - int(sacar_dinheiro)

@@ -13,11 +13,16 @@ def realizando_transferencia(nome_cliente):
 
     quantia = input('Quanto você deseja transferir?\n')
 
+    while quantia.isnumeric() == False: #VALIDAÇÃO PRA QUE NÃO POSSA SER DIGITADO ALGO FORA DE NÚMEROS
+        quantia=input('Digite uma quantia numérica\n')
+        volta=input('Digite voltar para voltar as operações bancárias')
+        if volta == 'volta':
+            OperaçoesBancarias.transações_bancárias(nome_cliente)
+            return
+
     if quantia.lower() == 'voltar': #SE DIGITAR PRA VOLTAR ELE RETORNARÁ PRAS OPERAÇÕES BANCÁRIAS
         OperaçoesBancarias.transações_bancárias(nome_cliente)
-    elif quantia.isnumeric() == False: #VALIDAÇÃO PRA QUE NÃO POSSA SER DIGITADO ALGO FORA DE NÚMEROS
-        print('Digite uma quantia numérica\n')
-        OperaçoesBancarias.transações_bancárias(nome_cliente)
+        return
     else:
         quantia = int(quantia)
         saldo_cliente = int(saldo_cliente)

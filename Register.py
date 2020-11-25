@@ -61,9 +61,13 @@ def registro_pessoal():
 
     entrar=input('Cadastro efetuado com sucesso, deseja fazer login?\n')
 
-    if entrar.lower() == 'sim':
-        Login.entrar_programa()
-    elif entrar.lower() == 'não':
-        MainScreen.tela_entrada()
-    else:
-        print("Opção inválida, tente novamente")
+    roda=True
+    while roda:
+        if entrar.lower() == 'sim':
+            Login.entrar_programa()
+            roda=False
+        elif entrar.lower() == 'não':
+            MainScreen.tela_entrada()
+            roda=False
+        else:
+            entrar=input("Opção inválida, tente novamente.\n")

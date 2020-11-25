@@ -16,14 +16,19 @@ def entrar_programa():
         nick.close()
 
     except:
-        cadastrar = input("Nome informado não possui cadastro, deseja cadastrar?\n")
 
-        if cadastrar.lower() == 'sim':
-            Register.registro_pessoal()
-        elif cadastrar.lower() == 'não':
-            MainScreen.tela_entrada()
-        else:
-            print("Opção inválida, tente novamente")
+        cadastrar = input("Nome informado não possui cadastro, deseja cadastrar?\n")
+        
+        roda=True
+        while roda:
+            if cadastrar.lower() == 'sim':
+                Register.registro_pessoal()
+                roda=False
+            elif cadastrar.lower() == 'não':
+                MainScreen.tela_entrada()
+                roda=False
+            else:
+                cadastrar=input("Opção inválida, tente novamente.")
 
     senha_verificaçao = input("Digite sua senha:\n")
 
@@ -31,7 +36,6 @@ def entrar_programa():
     ver_senha = senha.read()
     senha.close()
 
-    print(ver_senha)
 
     while senha_verificaçao != ver_senha:
         senha_verificaçao = input("Senha incorreta, tente novamente.\n")
