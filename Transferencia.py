@@ -1,4 +1,5 @@
 import BankingOperations
+from datetime import datetime
 
 #TRANSFERÊNCIA
 
@@ -35,13 +36,28 @@ def realizando_transferencia(nome_cliente):
 
             try:
                 nome_fav = open(f'{favorecido}/nome.txt',"r")
-                ler_nome = nome_fav.read()
                 nome_fav.close()
             except:
                 print("Nome de usuário não encontrado\n")
                 BankingOperations.transações_bancárias(nome_cliente)
                 return
+
             else:
+                if nome_fav == nome_cliente:
+                    print('Nome do usário e favorecido identicos\n')
+                    realizando_transferencia(nome_cliente)
+                    return
+                #validação para transferencia
+                abrir_senha = open(f'{nome_cliente}/senha.txt',"r")
+                ver_senha = abrir_senha.read()
+                abrir_senha.close()
+                verificar_senha = input('Digite sua senha para a confirmação.\n')
+                while ver_senha!=verificar_senha:
+                    verificar_senha = input('Senha incorreta, digite novamente.\nDigite "voltar" para voltar às operações bancárias.\n')
+                    if verificar_senha.lower()=='voltar':
+                        BankingOperations.transações_bancárias(nome_cliente)
+                        return
+
                 #ALTERAÇÃO DO SALDO PARA TRANSFERêNCIA
                 print('Transferência realizada!')
                 saldo = open(f'{nome_cliente}/saldo.txt',"r")
@@ -66,3 +82,11 @@ def realizando_transferencia(nome_cliente):
 
                 fav_saldo2.write(fav_alteracao)
                 fav_saldo2.close()
+
+                extrato = open(f'{nome_cliente}/extrato.txt','a')
+                data = datetime.now()
+                data_e_hora=data.strftime('%d/%m/%Y %H:%M')##TA FUNCIONANDO 26/11/2020 08:43
+                extrato.write(f'{data_e_hora} - Transferencia de R${quantia} para {favorecido} realizada.\n')
+                extrato.close()
+                BankingOperations.transações_bancárias(nome_cliente)
+                return

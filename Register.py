@@ -18,7 +18,8 @@ def registro_pessoal():
 
     #RECEBENDO E VALIDANDO CPF
     cpf_register = input("Digite seu cpf:\n")
-    cpf_register = RegisterTratamentos.validando_cpf(cpf_register)
+    #cpf_register =
+    RegisterTratamentos.validando_cpf(cpf_register)
 
     #RECEBENDO A SENHA
     senha_register = input("Digite sua senha:\n")

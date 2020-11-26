@@ -27,7 +27,7 @@ def entrar_programa():
                 MainScreen.tela_entrada()
                 return
             else:
-                cadastrar = input("Opção inválida, tente novamente.")
+                cadastrar = input("Opção inválida, tente novamente.\n")
 
     senha_verificaçao = input("Digite sua senha:\n")
 
