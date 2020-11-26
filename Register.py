@@ -20,6 +20,7 @@ def registro_pessoal():
     cpf_register = input("Digite seu cpf:\n")
     cpf_register = RegisterTratamentos.validando_cpf(cpf_register)
 
+    #RECEBENDO A SENHA
     senha_register = input("Digite sua senha:\n")
 
     #RECEBENDO E VALIDANDO SALDO
@@ -59,15 +60,14 @@ def registro_pessoal():
     arquivo_extrato= open(f'{pasta_cliente}/extrato.txt',"w")
     arquivo_extrato.close()
 
-    entrar=input('Cadastro efetuado com sucesso, deseja fazer login?\n')
+    entrar = input("Cadastro efetuado com sucesso, deseja fazer login?\n")
 
-    roda=True
-    while roda:
+    while(True):
         if entrar.lower() == 'sim':
             Login.entrar_programa()
-            roda=False
+            return
         elif entrar.lower() == 'não':
             MainScreen.tela_entrada()
-            roda=False
+            return
         else:
-            entrar=input("Opção inválida, tente novamente.\n")
+            entrar = input("Opção inválida, tente novamente.\n")

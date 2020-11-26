@@ -18,17 +18,16 @@ def entrar_programa():
     except:
 
         cadastrar = input("Nome informado não possui cadastro, deseja cadastrar?\n")
-        
-        roda=True
-        while roda:
+
+        while(True):
             if cadastrar.lower() == 'sim':
                 Register.registro_pessoal()
-                roda=False
+                return
             elif cadastrar.lower() == 'não':
                 MainScreen.tela_entrada()
-                roda=False
+                return
             else:
-                cadastrar=input("Opção inválida, tente novamente.")
+                cadastrar = input("Opção inválida, tente novamente.")
 
     senha_verificaçao = input("Digite sua senha:\n")
 

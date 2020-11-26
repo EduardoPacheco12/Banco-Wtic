@@ -1,5 +1,7 @@
 import MainScreen
-import OperaçoesBancarias
+import BankingOperations
+import UserSettings
+
 #TELA DO USUÁRIO
 def tela_usuario(nome_cliente):
     
@@ -13,14 +15,13 @@ def tela_usuario(nome_cliente):
 
         opcao = input("O QUE DESEJA FAZER?\n")
 
-        if opcao.lower() == "sair":
+        if opcao.lower() == 'sair':
             print("Até logo")
             exit(0)
-        elif opcao == "1":
-            OperaçoesBancarias.transações_bancárias(nome_cliente)
-        elif opcao == "2":
-            print("Configurações do Usuário(Não disponível ainda)")
-            continue
+        elif opcao == '1': # DIGITANDO ESSA OPÇÃO VOCÊ É ENCAMINHADO PARA AS OPERAÇÕES BANCÁRIAS
+            BankingOperations.transações_bancárias(nome_cliente)
+        elif opcao == '2':
+            UserSettings.configuracoes_sistema(nome_cliente)
         else:
             print("Opção inválida, tente novamente")
             continue

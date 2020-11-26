@@ -14,12 +14,12 @@ def tela_entrada():
 
         opcao = input("O QUE DESEJA FAZER?\n")
 
-        if opcao.lower() == "sair": #DIGITANDO ESSA OPÇÃO ELE SAI DO PROGRAMA
+        if opcao.lower() == 'sair': #DIGITANDO ESSA OPÇÃO ELE SAI DO PROGRAMA
             print("Até logo")
             exit(0)
-        elif opcao == "1": #DIGITANDO ESSA OPÇÃO VOCÊ É LEVADO PARA A TELA DE LOGIN
+        elif opcao == '1': #DIGITANDO ESSA OPÇÃO VOCÊ É LEVADO PARA A TELA DE LOGIN
             Login.entrar_programa()
-        elif opcao == "2": #DIGITANDO ESSA OPÇÃO VOCÊ É LEVADO PRA TELA DE CADASTRO
+        elif opcao == '2': #DIGITANDO ESSA OPÇÃO VOCÊ É LEVADO PRA TELA DE CADASTRO
             Register.registro_pessoal()
         else: #SE NENHUMA DAS OPÇÕES ACIMA FOR SELECIONADA ELE RETORNA PEDINDO UMA INFORMAÇÃO VÁLIDA
             print("Opção inválida, tente novamente")

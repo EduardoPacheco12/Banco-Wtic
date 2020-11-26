@@ -1,4 +1,3 @@
-import os
 import MainScreen
 
 #ENTRANDO NA MAIN SCREEN

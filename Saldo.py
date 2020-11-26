@@ -1,5 +1,3 @@
-import OperaçoesBancarias
-
 #SALDO
 
 def realizando_saldo(nome_cliente):
