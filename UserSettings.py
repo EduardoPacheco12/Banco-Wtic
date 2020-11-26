@@ -23,6 +23,6 @@ def configuracoes_sistema(nome_cliente):
             ChangeInformation.alteracao_informacoes(nome_cliente)
         elif opcao == '2': #DIGITANDO ESSA OPÇÃO VOCÊ IRÁ PRA PARTE DE ENCERRAR A CONTA
             CloseAccount.finalizar_conta(nome_cliente)
-        else:
+        else: #QUALQUER OUTRA COISA DIGITADA SERÁ INVALIDADA PARA O BOM FUNCIONAMENTO DO CÓDIGO
             print("Opção inválida, tente novamente")
             continue

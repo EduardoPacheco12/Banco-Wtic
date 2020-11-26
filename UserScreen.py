@@ -15,13 +15,13 @@ def tela_usuario(nome_cliente):
 
         opcao = input("O QUE DESEJA FAZER?\n")
 
-        if opcao.lower() == 'sair':
+        if opcao.lower() == 'sair': #DIGITANDO ESSA OPÇÃO VOCÊ SAI DO CÓDIGO
             print("Até logo")
             exit(0)
-        elif opcao == '1': # DIGITANDO ESSA OPÇÃO VOCÊ É ENCAMINHADO PARA AS OPERAÇÕES BANCÁRIAS
+        elif opcao == '1': #DIGITANDO ESSA OPÇÃO VOCÊ É ENCAMINHADO PARA AS OPERAÇÕES BANCÁRIAS
             BankingOperations.transações_bancárias(nome_cliente)
-        elif opcao == '2':
+        elif opcao == '2': #DIGITANDO ESSA OPÇÃO VOCÊ É ENCAMINHADO PARA AS CONFIGURAÇÕES DO USUÁRIO
             UserSettings.configuracoes_sistema(nome_cliente)
-        else:
+        else: #QUALQUER OUTRA COISA DIGITADA SERÁ INVALIDADA PARA O BOM FUNCIONAMENTO DO CÓDIGO
             print("Opção inválida, tente novamente")
             continue

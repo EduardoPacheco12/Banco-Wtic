@@ -1,6 +1,6 @@
 def validando_nome(nome):
     
-    arquivo='clientes.txt'
+    arquivo = 'clientes.txt'
 
     clientes= open(arquivo,'r')
 

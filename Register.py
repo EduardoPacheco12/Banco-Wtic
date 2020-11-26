@@ -63,11 +63,11 @@ def registro_pessoal():
     entrar = input("Cadastro efetuado com sucesso, deseja fazer login?\n")
 
     while(True):
-        if entrar.lower() == 'sim':
+        if entrar.lower() == 'sim': #DIGITANDO ESSA OPÇÃO VOCÊ SERÁ ENCAMINHADO PARA O LOGIN
             Login.entrar_programa()
             return
-        elif entrar.lower() == 'não':
+        elif entrar.lower() == 'não': #DIGITANDO ESSA OPÇÃO VOCÊ VOLTARÁ PARA A TELA PRINCIPAL
             MainScreen.tela_entrada()
             return
-        else:
+        else: #QUALQUER OUTRA COISA DIGITADA SERÁ INVALIDADA PARA O BOM FUNCIONAMENTO DO CÓDIGO
             entrar = input("Opção inválida, tente novamente.\n")

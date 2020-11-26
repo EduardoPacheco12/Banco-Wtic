@@ -33,5 +33,5 @@ def transações_bancárias(nome_cliente):
             print("Extrato será realizado")
         elif operacao.lower() == 'voltar': #DIGITANDO ESSA OPÇÃO VOCÊ RETORNA PRA TELA DE USUÁRIO
             UserScreen.tela_usuario(nome_cliente)
-        else:
+        else: #QUALQUER OUTRA COISA DIGITADA SERÁ INVALIDADA PARA O BOM FUNCIONAMENTO DO CÓDIGO
             print("Opção Inválida, tente novamente")
