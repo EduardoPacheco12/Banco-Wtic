@@ -20,13 +20,13 @@ def entrar_programa():
         cadastrar = input("Nome informado não possui cadastro, deseja cadastrar?\n")
 
         while(True):
-            if cadastrar.lower() == 'sim':
+            if cadastrar.lower() == 'sim': #DIGITANDO SIM VOCÊ É DIRECIONADO PARA A TELA DE REGISTRO
                 Register.registro_pessoal()
                 return
-            elif cadastrar.lower() == 'não':
+            elif cadastrar.lower() == 'não': #DIGITANDO NÃO VOCÊ É DIRECIONADO PARA O MENU PRINCIPAL
                 MainScreen.tela_entrada()
                 return
-            else:
+            else: #QUALQUER OUTRA COISA DIGITADA SERÁ INVALIDADA PARA O BOM FUNCIONAMENTO DO CÓDIGO
                 cadastrar = input("Opção inválida, tente novamente.\n")
 
     senha_verificaçao = input("Digite sua senha:\n")
@@ -34,7 +34,6 @@ def entrar_programa():
     senha= open(f'{nome_cliente}/senha.txt',"r")
     ver_senha = senha.read()
     senha.close()
-
 
     while senha_verificaçao != ver_senha:
         senha_verificaçao = input("Senha incorreta, tente novamente.\n")

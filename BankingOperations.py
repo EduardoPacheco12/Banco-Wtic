@@ -3,7 +3,7 @@ import Saque
 import Deposito
 import Transferencia
 import Saldo
-import extrato
+import Extrato
 
 #OPERAÇÕES BANCÁRIAS
 
@@ -31,7 +31,7 @@ def transações_bancárias(nome_cliente):
         elif operacao == '4': #DIGITANDO ESSA OPÇÃO SERÁ REALIZADO UMA CONSULTA DE SALDO
             Saldo.realizando_saldo(nome_cliente)
         elif operacao == '5': #DIGITANDO ESSA OPÇÃO SERÁ REALIZADO O EXTRATO
-            extrato.ver_extrato(nome_cliente)
+            Extrato.ver_extrato(nome_cliente)
         elif operacao.lower() == 'voltar': #DIGITANDO ESSA OPÇÃO VOCÊ RETORNA PRA TELA DE USUÁRIO
             UserScreen.tela_usuario(nome_cliente)
         else: #QUALQUER OUTRA COISA DIGITADA SERÁ INVALIDADA PARA O BOM FUNCIONAMENTO DO CÓDIGO

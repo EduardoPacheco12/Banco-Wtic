@@ -44,22 +44,22 @@ def realizando_transferencia(nome_cliente):
 
             else:
                 if nome_fav == nome_cliente:
-                    print('Nome do usário e favorecido identicos\n')
+                    print("Nome do usário e favorecido identicos\n")
                     realizando_transferencia(nome_cliente)
                     return
-                #validação para transferencia
+                #VALIDAÇÃO PARA TRANSFERÊNCIA
                 abrir_senha = open(f'{nome_cliente}/senha.txt',"r")
                 ver_senha = abrir_senha.read()
                 abrir_senha.close()
-                verificar_senha = input('Digite sua senha para a confirmação.\n')
-                while ver_senha!=verificar_senha:
-                    verificar_senha = input('Senha incorreta, digite novamente.\nDigite "voltar" para voltar às operações bancárias.\n')
-                    if verificar_senha.lower()=='voltar':
+                verificar_senha = input("Digite sua senha para a confirmação.\n")
+                while ver_senha != verificar_senha:
+                    verificar_senha = input("Senha incorreta, digite novamente.\nDigite 'voltar' para voltar às operações bancárias.\n")
+                    if verificar_senha.lower() == 'voltar':
                         BankingOperations.transações_bancárias(nome_cliente)
                         return
 
                 #ALTERAÇÃO DO SALDO PARA TRANSFERêNCIA
-                print('Transferência realizada!')
+                print("Transferência realizada!")
                 saldo = open(f'{nome_cliente}/saldo.txt',"r")
                 alterar_saldo = saldo.read()
                 saldo.close()
@@ -83,6 +83,7 @@ def realizando_transferencia(nome_cliente):
                 fav_saldo2.write(fav_alteracao)
                 fav_saldo2.close()
 
+                #SALVANDO NO EXTRATO
                 extrato = open(f'{nome_cliente}/extrato.txt','a')
                 data = datetime.now()
                 data_e_hora=data.strftime('%d/%m/%Y %H:%M')##TA FUNCIONANDO 26/11/2020 08:43
